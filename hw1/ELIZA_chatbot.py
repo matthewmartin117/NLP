@@ -3,10 +3,13 @@ import re
 
 # define the subsitution rules as a list of tuples, the pattern to search for , and repsonse to give 
 subsitution_rules = [
-    (r'.* I\'m (depressed | sad).*', r'I am sorry to hear you are\1'),
-    (r'.* I am (depressed | sad).*', r'Why do you think you are \1'),
-    (r'.* all .*', r'In what way?'),
-    (r'.*always.*',r'Can you think of a specific example?')
+    (r'.*My (order|package) is late.*', r'I am sorry to hear about your \1, Can you provide me with your order details?'),
+    (r'.*order number.*(\d+)', r'I looked up order number \1 and email you the details'),
+    (r'.*all.*', r'In what way?'),
+    (r'.*refund.*',r'I understand you are asking about a refund, I will log it with customer service'),
+    (r'.*broken.*',r'I am sorry to hear the product is broken. Can you describe the details?'),
+    (r'.*[Tt]hanks.*',r'You are welcome. is there anything else I can help you with?'),
+    (r'.*[Nn]o.*',r'alright, thank you for contacting customer service'),
 ]
 
 #func to get responses based on the user input 
