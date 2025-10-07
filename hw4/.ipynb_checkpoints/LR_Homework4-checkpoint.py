@@ -77,7 +77,7 @@ def countPositiveAndNegativeWords(d):
     return countPositive, countNegative
 
 
- this function builds feature x3 for each document, checks if no is in the document 
+#this function builds feature x3 for each document, checks if no is in the document 
 def noInDocument(d):
     '''
     Returns 1 if the word "no" is in the document.   You may
@@ -201,9 +201,17 @@ print()
 print(mtrx.evaluate())
 
 
-print("the logistic regression classifier returned an accuracy score of 72%, meaning it used the fearures extracted to predict the sentiment correctly about 72% of the time. \m
+print("""The logistic regression classifier returned an accuracy score of 72%, meaning it used the fearures extracted to predict the sentiment correctly about 72% of the time. The classifier returned a precision score of about 72% for both negative and postive sentiment movies. 
 
-The classifier returned a precision score of about 72% for both negative and postive sentiment movies. This means when a movie was classified as neg, how many times was it actually negative , the true posittives out of the all the classified positives. a movie was classified 137 times as a negative movie, with 54 false negatives. It was similar for positive movies with 151 correctly classfied as positive with 58 false positives. this is not ideal but also it does not seem like the model favor negative or positive classifactions over the other, meaning it is a relativley "fair" classifier. /n
+The classifier labeled 137 movies correctly as negative, but misclassified 58 as positive (false positives).
 
-The recall score was 70% for negative senitment and ~74% for positive sentiment. so of all postivley sentimented movie reviews, the classifer caught 74% percent of them, and for all negative snetiment, the classifer caught 70% of them. "
+Similarly, it labeled 151 movies correctly as positive, but misclassified 54 as negative (false negatives).”
+
+This is not ideal but also it does not seem like the model favor negative or positive classifactions over the other, meaning it is a relativley "fair" classifier. 
+
+The recall score was 70% for negative senitment and ~74% for positive sentiment. so of all postivley sentimented movie reviews, the classifer caught 74% percent of them, and for all negative sentiment, the classifer caught 70% of them.
+
+
+The weights seem to make sense, I would have expected the positive and negative weights to be more important, but it could be that the words themselves individual may not be as important as the overall meaning, for example not and bad seperatley vs not bad, or not good. It is also interesting that lengthier reviews tend to be weighted more positivley by the model.""")
+
 
