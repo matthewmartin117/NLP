@@ -44,27 +44,36 @@ def averageVector(s):
     # database is a vector of size 300.
 
     # tokenize the sentence using nltk word_tokenize.
-    # code needed here
+    words = nltk.word_tokenize(s)
 
     # write a loop that will sum up all of the word2vec vectors for each word
     # you will need a try-except block to handle the case where the word is not
     # in the word2vec "dictionary".   Just ignore words that aren't in the dictionary.
-
     sumVectors = 300*[0]
-    countVectors = 0   # how many vectors get added together?  You'll need that to
+    countVectors = 0  # how many vectors get added together?  You'll need that to
             # compute the average
+
 
     # iterate through each word in the string
         # find its word2vec vector (if it exists)
         # add it to the running sum (sumVectors)
         # if you add something, increase the counter
+    for word in words:
+        try:
+          # add the word2vector for each word if it exists
+          sumVectors += model[word]
+          countVectors += 1
+        except:
+          continue
+
+
 
     # once you have the sum of the vectors, compute the average vector
     # by taking each vector value and dividing by how many vectors were
     # added together
+    averageVector = sumVectors / countVectors
 
     return averageVector
-
 
 # for each question
 # no changes needed below
@@ -87,3 +96,5 @@ for q in questions:
         print("The computed answer is ", closest[0], "which is correct.")
     else:
         print("The computed answer is ", closest[0], "which is incorrect.")
+
+ 
